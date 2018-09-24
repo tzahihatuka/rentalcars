@@ -1,0 +1,58 @@
+
+<section>
+    <div class="container"> 
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" method="post" class="form" role="form">    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                  
+               
+              
+                
+                  <div class="col-md-3">
+                          <div class="form-group ">
+                                        <input type="text" class="form-control"  pattern="[0-9]*" placeholder="Enter Id Namber" name="IdNamber"[(ngModel)]="model.IdNamber" #IdNamber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && IdNamber.invalid }" required minlength="5" maxlength="9"/>
+
+                              </div>
+                      </div>
+
+
+                <div class="col-md-3">
+                      <div class="form-group ">
+                          <button  [disabled]="!f.valid" class="btn btn-lg btn-primary btn-block" type="submit">Show rented car</button>
+                         
+                          </div>
+                  </div>
+
+                <div class="col-md-12">
+                        <label *ngIf="emptyOrderList" class="alert alert-danger">there is no orders for this number</label>
+                    <div class="form-group ">
+                        <table>
+                            <tr>
+                                <th>UserName</th>
+                                <th>StartDate</th>
+                                <th>ReturnDate</th>
+                                <th>VehicleNumber</th>
+                              </tr>
+                          
+                              <tr *ngFor="let order of orderlist" routerLink="un-returned-cars/{{selectedOrder.VehicleNumber}}" >
+                             <td (order)="order">{{order.UserName}}</td>
+                              <td>{{order.StartDate|date:'short'}}</td>
+                              <td>{{order.ReturnDate|date:'short'}}</td>
+                              <td>{{order.VehicleNumber}}</td>
+                              <td (click)="setItem(order)">click to return the order</td>
+                            </tr>
+                        </table>
+                        </div>
+                </div>
+            </div>
+          </div>
+        </div>  
+        </div>
+    </div>
+  </form>
+</div>
+</section>
+<router-outlet></router-outlet>

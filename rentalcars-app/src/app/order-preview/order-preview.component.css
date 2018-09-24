@@ -1,0 +1,21 @@
+img{
+    width:100%;
+}
+ul {
+    margin-top: 15px;
+    direction: rtl;
+}
+li{
+    border: 2px groove;
+    display: block;
+}
+.calculateCost{
+    border: 2px groove;
+    max-width:335px ;
+}
+.modal-content{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    max-width: 800px;
+}

@@ -1,0 +1,112 @@
+
+
+<section>
+    <div class="container">
+        <form name="form" (ngSubmit)="g.form.valid" #g="ngForm" method="post" class="form" role="form">
+        <div class="row">
+              <div class="col-md-12">
+                  <div id="custom-search-input">
+                      <div class="input-group col-md-6">
+                          <div class="form-group ">
+                                        <input type="text" class="form-control"  pattern="[0-9]*" placeholder="Enter Id Namber" name="IdNamber"[(ngModel)]="model.IdNamber" #IdNamber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && IdNamber.invalid }" required minlength="5" maxlength="9"/>
+                                      </div>
+                                      </div>
+                                      
+                                      <div class="col-md-6">
+                                          <div class="form-group ">
+                                              <button  class="btn btn-lg btn-primary btn-block" (click)="search()">Show Orders</button>
+                                              </div>
+                                      </div>
+                                    </div>
+                                </div>
+                          </div>
+                        </form>
+                        
+            
+                        <table  class="table">
+                            <thead>
+                            <tr>
+                                <th>Id Namber</th>
+                                <th>UserName</th>
+                                <th>Start Date</th>
+                                <th>Return Date</th>
+                                <th>Vehicle Number</th>
+                                <th>Actual Return Date</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let order of orderlist" (click)="setItem(order)">
+                                    <td>{{model.IdNamber}}</td>
+                                    <td>{{order.UserName}}</td>
+                                    <td>{{order.StartDate|date:'M/d/yy'}}</td>
+                                    <td>{{order.ReturnDate|date:'M/d/yy'}}</td>
+                                    <td>{{order.VehicleNumber}}</td>
+                                    <td>{{order.ActualReturnDate}}</td>
+                                </tr>
+                              </tbody>
+                             
+                        </table>
+                        <form name="form" (ngSubmit)="f.form.valid" #f="ngForm" method="post" class="form" role="form">
+                <div class="row">
+                  
+                    <div class="col-md-1.5">
+                            <div class="form-group ">
+                                          <input type="text" class="form-control"  placeholder="Enter Id Namber" name="IdNamber"[(ngModel)]="model.IdNamber" #IdNamber="ngModel" readonly/>
+                                </div>
+                        </div>
+                        <div class="col-md-1.5">
+                            <div class="form-group ">
+                                          <input type="text" class="form-control"  placeholder="UserName" name="UserName"[(ngModel)]="model.UserName" #UserName="ngModel" readonly/>
+                                </div>
+                        </div>
+                  
+                        <div class="col-md-1.5">
+                            <div class="form-group ">
+                                    <input type="date" name="Start" [(ngModel)]="date.Start" #Start="ngModel" required >
+                                  </div>
+                                </div>
+                                
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                                    <input type="date" name="Return" [(ngModel)]="date.Return"  #Return="ngModel"required >
+                                  </div>
+                                </div>
+                               
+
+                                    <div class="col-md-2">
+                                        <div class="form-group ">
+                                                      <input type="text"  pattern="[0-9]*" placeholder="Vehicles Namber" name="VehicleNumber"[(ngModel)]="model.VehicleNumber" #vehicale="ngModel" />
+                                            </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group ">
+                                                <input type="date" name="ActualReturnDate" [(ngModel)]="model.ActualReturnDate"  #ActualReturnDate="ngModel" >
+                                              </div>
+                                            </div>
+  
+                  <div class="col-md-2" *ngIf="serchresult" >
+                        <div class="form-group ">
+                            <button  [disabled]="!f.valid"  (click)="onSubmit('Add')" class="btn btn-lg btn-primary btn-block">Add</button>
+                            </div>
+                    </div>
+                    <div class="col-md-3"*ngIf="serchresult">
+                        <div class="form-group ">
+                            <button  [disabled]="!f.valid"  (click)="onSubmit('Update')" class="btn btn-lg btn-primary btn-block">Update</button>
+                            </div>
+                    </div>
+                    <div class="col-md-3"*ngIf="serchresult">
+                        <div class="form-group ">
+                            <button  class="btn btn-lg btn-primary btn-block"  (click)="deleteOrder()">Delete</button>
+                            </div>
+                    </div>
+                    <label *ngIf="wrongCarinput" class="alert alert-danger">please enter a valid car number</label>
+                         <label *ngIf="wrongDateInput" class="alert alert-danger">the start date can't be before the end date</label>
+                                    <label *ngIf="wrongmindate" class="alert alert-danger">You can not select a date before the current date</label>
+                                    <label *ngIf="myCarOrders.newOrder" class="alert alert-danger">this car is not Available in this date please select another car</label>
+                                    <label *ngIf="myCarOrders.deletedSuccessfully" class="alert alert-danger">this car are not deleted</label>
+                                   
+                  </div>
+                </form>
+            </div>
+          
+</section>

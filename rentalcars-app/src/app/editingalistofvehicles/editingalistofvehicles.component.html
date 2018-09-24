@@ -1,0 +1,152 @@
+
+<section>
+    <div class="container"> 
+        <form name="form" (ngSubmit)="g.form.valid" #g="ngForm" method="post" class="form" role="form">
+            <div class="row">
+                  <div class="col-md-12">
+                      <div id="custom-search-input">
+                          <div class="input-group col-md-6">
+                              <div class="form-group ">
+                                            <input type="text" class="form-control"  pattern="[0-9]*" placeholder="Enter car Namber" name="carNamber"[(ngModel)]="model.VehicleNumber" #carNamber="ngModel" minlength="5" maxlength="9"/>
+                                          </div>
+                                          </div>
+                                          
+                                          <div class="col-md-6">
+                                              <div class="form-group ">
+                                                  <button  class="btn btn-lg btn-primary btn-block" (click)="search()">serach car</button>
+                                                  </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                              </div>
+                            </form> 
+                            <table  class="table">
+                                <thead>
+                                <tr>
+                                    <th>car number</th>
+                                    <th>company name</th>
+                                    <th>model</th>
+                                    <th>gear</th>
+                                    <th>year</th>
+                                    <th>Branches Name</th>
+                                    <th>Updated Mileage</th>
+                                    <th>Is Proper For Rent</th>
+                                    <th>Vehicle Pic</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <tr (click)="setItem(myCar.carInfo.a)" *ngIf="myCar.carInfo.a.VehiclePic!=undefined">
+                                        <td>{{myCar.carInfo.a.VehicleNumber}}</td>
+                                        <td>{{myCar.carInfo.a.ManufacturerName}}</td>
+                                        <td>{{myCar.carInfo.a.Model}}</td>
+                                        <td>{{myCar.carInfo.a.Gear}}</td>
+                                        <td>{{myCar.carInfo.a.ManufactureYear|date:'M/d/yy'}}</td>
+                                        <td>{{myCar.carInfo.a.BranchesName}}</td>
+                                        <td>{{myCar.carInfo.a.UpdatedMileage}}</td>
+                                        <td>{{myCar.carInfo.a.IsProperForRent}}</td>
+                                        <td><img src={{myCar.carInfo.a.VehiclePic}}></td>
+                                    </tr>
+                                  </tbody>
+                                 
+                            </table> 
+                            <label *ngIf="carUploded" class="alert alert-danger">this car exsisted or you missing parameters</label>
+
+
+                <div class="col-md-3">
+                    <div class="form-group ">
+                        <input type="text" class="form-control"  pattern="[0-9]*" placeholder=" car Namber" name="newcarNamber"[(ngModel)]="model.VehicleNumber" #newcarNamber="ngModel"  minlength="5" maxlength="9"/>
+                        </div>
+                </div>
+                
+                <div class="col-md-3">
+                      <div class="form-group ">
+                            <select id="inputState"[(ngModel)]="Company"  class="form-control" (ngModelChange)="saverange()"><option selected [value]="car">Company</option>
+                              <option *ngFor="let car of carGallery.a">{{car}}</option>
+                            </select>
+                          </div>
+                  </div>
+              
+                
+                  <div class="col-md-3">
+                          <div class="form-group ">
+                                <select id="inputState" class="form-control"[(ngModel)]="model.Model" ><option selected [value]="Model">Model</option>
+                                  <option *ngFor="let Model of TypsModel.a">{{Model}}</option>
+                                </select>
+                              </div>
+                      </div>
+
+
+                <div class="col-md-3">
+                      <div class="form-group ">
+                            <select id="inputState" class="form-control" [(ngModel)]="model.Gear"><option selected [value]="Gear">Gear</option>
+                              <option *ngFor="let Gear of TypsGetGear.a">{{Gear}}</option>
+                            </select>
+                          </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="form-group ">
+                          <input type="date" class="form-control"  placeholder="year" name="newcaryear"[(ngModel)]="model.ManufactureYear" #newcaryear="ngModel" />
+                          </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="form-group ">
+                            <select id="inputState" class="form-control"[(ngModel)]="model.BranchesName" ><option selected [value]="Branch">Branch</option>
+                              <option *ngFor="let Branch of myBranchs.a">{{Branch.BranchesName}}</option>
+                            </select>
+                          </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="form-group ">
+                          <input type="text" class="form-control"  pattern="[0-9]*"  placeholder="Updated Mileage" name="UpdatedMileage"[(ngModel)]="model.UpdatedMileage" #UpdatedMileage="ngModel"/>
+                          </div>
+                  </div>
+                  <span>
+                      Is it Proper For Rent
+                    </span>
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                  <label class="radio-inline">
+                      <input  type="radio" name="IsProperForRent"  id="inlineCheckbox1" [value]="true"  [(ngModel)]="model.IsProperForRent"  #IsProperForRent="ngModel"/>
+                    	true	&nbsp;
+                  </label>
+                  <label class="radio-inline">
+                      <input  type="radio" name="IsProperForRent" id="inlineCheckbox2" [value]="false" [(ngModel)]="model.IsProperForRent"  #IsProperForRent="ngModel"/>
+                      false 	&nbsp;
+                  </label>
+                  
+                </div>
+                <div class="container">
+                  
+                        <div class="form-group">
+                            <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                            <img *ngIf="imageUrl" [src]="imageUrl" style="width:250px;height:200px;display:block;">
+                        </div>
+                        
+                        <button class="form-group" type="submit" (click)="OnSubmit()"> Submit</button>
+                 
+                </div>
+              </div>
+
+            </div>
+
+                <div class="row">
+            <div class="col-md-2" >
+                <div class="form-group">
+                    <button  (click)="Add()" class="btn btn-lg btn-primary btn-block">Add</button>
+                    </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group ">
+                    <button  (click)="Update()" class="btn btn-lg btn-primary btn-block">Update</button>
+                    </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group ">
+                    <button  class="btn btn-lg btn-primary btn-block"  (click)="delete()">Delete</button>
+                    </div>
+                </div>
+    </div>
+
+</section>
+

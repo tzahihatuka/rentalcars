@@ -1,0 +1,37 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"> <img src="assets/carLogo.jpg" id="logo"/></a>
+          <button class="navbar-toggler" type="button" id="mobileShowNav" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" >
+                <li class="nav-item"><a class="nav-link active" (click)="closeMobileNavbar()"(click)="relevanturl('Home')" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" routerLink="/Home" style="width:auto;">Home</a></li>
+                <li class="nav-item" *ngIf="RoleNumber!=1&&RoleNumber!=2"><a class="nav-link" id="pills-Cars-tab"(click)="closeMobileNavbar()" (click)="relevanturl('cars')" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" routerLink="/cars" style="width:auto;">Cars</a></li>
+                <li class="nav-item" *ngIf="isRagistared.isRagistared&&RoleNumber!=1&&RoleNumber!=2"><a class="nav-link" id="pills-My Orders-tab"(click)="closeMobileNavbar()" (click)="relevanturl('MyOrders')" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" routerLink="/MyOrders" aria-selected="false" routerLink="/MyOrders" style="width:auto;">My Orders</a></li>
+                <li *ngIf="RoleNumber==1" class="nav-item"><a class="nav-link"  routerLink="/Editingalistofvehicles"   style="width:auto;">Editinga list of vehicles</a></li>
+                <li *ngIf="RoleNumber==1" class="nav-item"><a class="nav-link"  routerLink="/Editingusers"   style="width:auto;">Editing users</a></li>
+                <li *ngIf="RoleNumber==1" class="nav-item"><a class="nav-link"  routerLink="/Editingvehicletypes"   style="width:auto;">vehicle types</a></li>
+                <li *ngIf="RoleNumber==1" class="nav-item"><a class="nav-link"  routerLink="/EditOrders"   style="width:auto;">Edit Orders</a></li>
+                <li *ngIf="RoleNumber==2" class="nav-item"><a class="nav-link" routerLink="return-car" style="width:auto;">Return-car</a></li>
+                <li *ngIf="isRagistared.isRagistared" class="nav-item"><a class="nav-link"  routerLink="/Home" (click)="clearStorage()"  style="width:auto;">Logout</a></li>
+
+              </ul>
+
+        <!--<login></login>
+            <sign-up></sign-up>-->
+          
+            <ul *ngIf="!isRagistared.isRagistared" class="nav nav-pills mb-3 ml-auto">
+              <li class="nav-item"><a class="nav-link" routerLink="{{lestUrl}}/signup"(click)="closeMobileNavbar()"  style="width:auto;"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li class="nav-item"><a class="nav-link" routerLink="{{lestUrl}}/login"(click)="closeMobileNavbar()" style="width:auto;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              
+            </ul>
+           
+          </div>
+        </div>
+        <ul class="nav nav-pills mb-3 ml-auto">
+          <li *ngIf="isRagistared.isRagistared" id="name"  ><a style="width:auto;"><span class="glyphicon glyphicon-log-in"></span> {{userName}}</a></li>
+        </ul>
+      </nav>
+     

@@ -1,0 +1,52 @@
+<div id="id01" class="modal imgcontainer">
+  
+    
+    <form class="modal-content animate container ">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 well well-sm">
+                <form name="form" (ngSubmit)="f.form.valid" #f="ngForm" method="post" class="form" role="form">
+                 
+                    <div class="row">
+                        <div *ngIf="!carOrder" class="col-xs-12 col-sm-12 col-md-5">
+                            <img src={{carGallery.VehiclePic}}/>
+                        </div>
+                        <div *ngIf="carOrder" class="col-xs-12 col-sm-12 col-md-5">
+                            <label>click order to order in this price</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                                <ul>
+                                <li> ManufacturerName: {{carGallery.ManufacturerName}} </li>
+                                <li> Model: {{carGallery.Model}}</li>
+                                <li> DailyCost: {{carGallery.DailyCost}}</li>
+                                <li> CostDayOverdue: {{carGallery.CostDayOverdue}}</li>
+                            </ul>
+                               </div>
+                        </div>
+                        <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-5">
+                         
+                          <div *ngIf="!carOrder&&isRagistared" ><button class="btn btn-lg btn-primary btn-block linein"   [disabled]="showedPeice" (click)="moveToOrder()">Order</button></div>
+                          <div> <button *ngIf="!isRagistared" routerLink="//cars/signup" class="btn btn-lg btn-primary btn-block linein">Sign up</button></div>
+                          <div *ngIf="carOrder &&isRagistared" ><button class="btn btn-lg btn-primary btn-block linein"   (click)="order(carGallery.VehicleNumber)">Order</button></div>
+                            <label *ngIf="carNotAvailable" class="alert alert-danger">This car is not available on these dates</label>
+                            <button  class="btn btn-lg btn-primary btn-block" routerLink="/cars" (click)="BackToGallery()">Back to Gallery</button>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-2">
+                                    <div *ngIf="getPrice" class="calculateCost"><label >Calculated Cost:</label><h1>{{totalCost}}</h1></div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-5">
+                                    <label>Start <input type="date" name="Start" [(ngModel)]="model.Start" #Start="ngModel" required ></label>
+                                    <label>End <input type="date" name="End" [(ngModel)]="model.End"  #End="ngModel"required ></label>
+                                    <label *ngIf="wrongDateInput" class="alert alert-danger">the start date can't be before the end date</label>
+                                    <label *ngIf="wrongmindate" class="alert alert-danger">You can not select a date before the current date</label>
+                                    <button class="btn btn-lg btn-primary btn-block" [disabled]="!f.valid" (click)="onSubmit()">Register</button>
+                                    </div>
+                                  </div>
+                
+                </form>
+            </div>
+        </div>
+      </form>
+      
+</div>
+

@@ -1,0 +1,39 @@
+<div id="id01" class="modal imgcontainer" *ngIf="myCarGallery.carSelected" >
+ 
+    <form class="modal-content animate container ">
+        <span (click)="closeselectCar()" routerLink="//cars" class="close" id="Sclose" title="Close">&times;</span>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 well well-sm">
+                <form >
+                 
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-5">
+                         <img src={{carGallery.VehiclePic}}/>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-6">
+                                
+                                <ul>
+                                <li> ManufacturerName: {{carGallery.ManufacturerName}}</li>
+                                <li> DailyCost: {{carGallery.DailyCost}}</li>
+                                <li> CostDayOverdue: {{carGallery.CostDayOverdue}} </li>
+                                <li> Model: {{carGallery.Model}}</li>
+                                <li> ManufactureYear: {{carGallery.ManufactureYear| date:'M/d/yy'}}</li>
+                                <li> Gear: {{carGallery.Gear}}</li>
+                                <li> BranchesName: {{carGallery.BranchesName}}</li>
+                            </ul>
+                               </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-5">
+                                <button *ngIf="!isRagistared" routerLink="//cars/signup" class="btn btn-lg btn-primary btn-block">Sign up</button>
+                                <button  *ngIf="isRagistared"  class="btn btn-lg btn-primary btn-block" (click)="openOrderBox()">Order</button>
+                                <button  class="btn btn-lg btn-primary btn-block" (click)="openOrderBox()">Get Price</button>
+                            </div>
+                        
+                
+                </form>
+            </div>
+        </div>
+      </form>
+      
+</div>
+<car-price *ngIf="myCarGallery.moveToOrder"></car-price>

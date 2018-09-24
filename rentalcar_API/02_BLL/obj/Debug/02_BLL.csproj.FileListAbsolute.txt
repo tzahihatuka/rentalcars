@@ -1,0 +1,30 @@
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\02_BLL.dll.config
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\02_BLL.dll
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\02_BLL.pdb
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\00_DAL.dll
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\01_BOL.dll
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\EntityFramework.dll
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\00_DAL.pdb
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\00_DAL.dll.config
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\01_BOL.pdb
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\EntityFramework.xml
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\obj\Debug\02_BLL.csprojResolveAssemblyReference.cache
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\obj\Debug\02_BLL.dll
+C:\Users\tzahi\Documents\Visual Studio 2017\Projects\rentalcar_API\02_BLL\obj\Debug\02_BLL.pdb
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\02_BLL.dll.config
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\02_BLL.dll
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\02_BLL.pdb
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\00_DAL.dll
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\01_BOL.dll
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\EntityFramework.dll
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\00_DAL.pdb
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\00_DAL.dll.config
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\01_BOL.pdb
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\EntityFramework.xml
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\obj\Debug\02_BLL.csprojResolveAssemblyReference.cache
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\obj\Debug\02_BLL.dll
+D:\GitHub\advanced project\rentalcars\rentalcar_API\02_BLL\obj\Debug\02_BLL.pdb

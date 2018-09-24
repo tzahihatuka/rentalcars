@@ -1,0 +1,95 @@
+<div id="id01" class="modal imgcontainer">
+  
+    
+    <form class="modal-content animate container ">
+        <span routerLink="{{lestUrl}}"  class="close" id="Sclose" title="Close">&times;</span>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 well well-sm">
+                <legend> Sign up!</legend>
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" method="post" class="form" role="form" >
+                 
+                        
+
+                                    <input type="text" class="form-control"  pattern="[a-zA-Z\s]*" maxlength="40"  name="fullname" placeholder="Full Name"autofocus  [(ngModel)]="model.fullname" #fullname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fullname.invalid }" required minlength="3"/>                              
+                                   
+                                    <div *ngIf="ShowErrors&& fullname.invalid" class="alert alert-danger">
+                                        <div *ngIf="fullname.errors.required">Full Name is required</div>
+                                        <div *ngIf="fullname.errors?.minlength"> Name must be at least 3 characters</div> 
+                                        <div *ngIf="fullname.errors?.pattern" >Please enter only letters allowed</div>
+                                    </div>
+                                    
+                    
+                            <input type="text" class="form-control"  pattern="[0-9]*" placeholder="Id Namber" name="IdNamber"[(ngModel)]="model.IdNamber" #IdNamber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && IdNamber.invalid }" required minlength="5" maxlength="9"/>
+                           
+                            <div *ngIf="ShowErrors&&IdNamber.invalid" class="alert alert-danger">
+                                <div *ngIf="IdNamber.errors.required">Id Namber is required</div>
+                                <div *ngIf="IdNamber.errors?.minlength" > Id Namber must be at least 5 numbers.</div>
+                                <div *ngIf="IdNamber.errors?.pattern">Please enter only Numbers. </div>
+                                  
+                            </div>
+                            <input type="text" class="form-control" pattern="[0-9a-zA-Z]*" maxlength="15" placeholder="User Name" name="UserName"[(ngModel)]="model.UserName" #UserName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && UserName.invalid }" required minlength="3"/>
+                            
+                            <div *ngIf="ShowErrors&&UserName.invalid" class="alert alert-danger">
+                                <div *ngIf="UserName.errors.required">User Name is required</div>
+                                <div *ngIf="UserName.errors?.minlength" > Name must be at least 3 characters long.</div> 
+                                <div *ngIf="UserName.errors?.pattern" >Please enter only letters and numbers are allowed</div>
+                            </div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-4 col-md-3">
+                                        <label for="Birth Date"> Date Of Birth</label>
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                              <div class="input-group">  
+                                                <input class="form-control" style="max-width: 128px" placeholder="yyyy-mm-dd" [minDate]="minDate" [maxDate]="maxDate" readonly
+                                                 ngbDatepicker #d="ngbDatepicker" #DateOfBirth="ngModel" name=DateOfBirth [(ngModel)]="model.DateOfBirth">
+                                               
+                                                        <span (click)="d.toggle()">
+                                                                <img src="assets/images.jpg" style="width: 2.2rem; margin: 5px; cursor: pointer;"/>
+                                                              </span>                                      
+                                              </div>
+                                            </div>
+                                          </form>
+                                       
+                                         
+                                    </div>
+                                </div>
+                            
+                               
+                                <label class="radio-inline">
+                                        <input  type="radio" name="sex"  id="inlineCheckbox1" value="male" [(ngModel)]="model.sex"  ngModel required #sex="ngModel"/>
+                                        Male
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input  type="radio" name="sex" id="inlineCheckbox2" value="female" [(ngModel)]="model.sex" ngModel required #sex="ngModel"/>
+                                        Female
+                                    </label>
+                                    <div *ngIf="ShowErrors && sex.invalid" class="alert alert-danger">
+                                    <div [hidden]="!f.controls.sex?.hasError('required')">
+                                            The gender is required
+                                        </div>
+                                    </div>
+                <input type="email" class="form-control" placeholder="Your Email" name="youremail" [(ngModel)]="model.youremail" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+                        <div *ngIf="ShowErrors && email.invalid" class="alert alert-danger">
+                            <div *ngIf="email.errors.required">Email is required</div>
+                            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                        </div>
+                       
+
+                    <input type="password"(focus)="onFocus()" pattern="[0-9a-zA-Z]*" class="form-control" name="password" placeholder="New Password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                 
+                    <div *ngIf="ShowErrors && password.invalid" class="alert alert-danger">
+                        <div *ngIf="password.errors.required">Password is required</div>
+                        <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                        <div *ngIf="password.errors?.pattern" class="alert alert-danger">Please enter only letters and numbers are allowed</div>
+                    </div>
+                
+                <button  [disabled]="!f.valid" class="btn btn-lg btn-primary btn-block" type="submit">
+                    Sign up</button>
+                    <a routerLink="/login" style="width:auto;"><span></span> Login</a>
+                </form>
+            </div>
+        </div>
+      </form>
+      
+</div>
+

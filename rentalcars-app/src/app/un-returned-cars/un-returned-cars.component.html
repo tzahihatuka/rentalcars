@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 well well-sm">
+            
+                <div class="row ">
+                    <div class="col-xs-12 col-sm-12 col-md-8">
+                            <ul>
+                              <li> Start Date: {{this.myCarOrders.returnedCar.StartDate|date:'short'}}</li>
+                              <li> expected Return Date:{{this.myCarOrders.returnedCar.ReturnDate|date:'short'}} </li>
+                              <li> Manufacturer Name: {{myCarGallery.carInfo.a.ManufacturerName}}</li>
+                              <li> Model: {{myCarGallery.carInfo.a.Model}}</li>
+                              <li> Daily Cost:{{myCarGallery.carInfo.a.DailyCost}} </li>
+                              <li> Cost of day overdue:{{myCarGallery.carInfo.a.CostDayOverdue}} </li>
+                        </ul>
+                       
+                      </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="calculateCost"><label >Calculated Cost:</label><h1>{{this.myCarOrders.cost.a}}</h1></div>
+                        </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                      <button  class="btn btn-lg btn-primary btn-block" (click)="ReturnCar()">Return-car</button>
+                    </div>
+                  </div>
+        </div>
+    </div>
+

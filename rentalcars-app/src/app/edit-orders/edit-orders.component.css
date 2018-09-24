@@ -1,0 +1,9 @@
+button{
+    display: inline;
+}
+tr{
+    cursor: pointer;
+}
+.container {
+    max-width: 1461px;
+}

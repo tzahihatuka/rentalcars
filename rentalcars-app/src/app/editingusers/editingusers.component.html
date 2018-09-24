@@ -1,0 +1,151 @@
+
+
+
+<section>
+  <div class="container">
+      <form name="form" (ngSubmit)="g.form.valid" #g="ngForm" method="post" class="form" role="form">
+      <div class="row">
+            <div class="col-md-12">
+                <div id="custom-search-input">
+                  <div class="col-md-2">
+                      <div class="form-group ">
+                           
+                          </div>
+                  </div>
+                  <div class="col-md-2">
+                      <div class="form-group ">
+                                    <input type="text" class="form-control"  placeholder="User ID Number" name="UserIdNumber"[(ngModel)]="model.UserIdNumber" #UserIdNumber="ngModel"/>
+                          </div>
+                  </div>
+                  <div class="row">
+                <div class="col-md-3" >
+                  <div class="form-group ">
+                      <button   (click)="SearchUser()" class="btn btn-lg btn-primary btn-block">search user</button>
+                      </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="form-group ">
+                      <button  (click)="ShowAllUsers()" class="btn btn-lg btn-primary btn-block">show all users</button>
+                      </div>
+              </div>
+            </div>
+                                  </div>
+                              </div>
+                        </div>
+                      </form>
+                      
+          
+                      <table  class="table">
+                          <thead>
+                          <tr>
+                            <th>user id number</th>
+                              <th>Full User Name</th>
+                              <th>User Name</th>
+                              <th>Password</th>
+                              <th>BirthDay</th>
+                              <th>Sex</th>
+                              <th>User Pic</th>
+                              <th>User Email</th>
+                              <th>User User Role</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let user of usersList.a" (click)="setItem(user)">
+                                    <td>{{user.UserIdNumber}}</td>
+                                  <td>{{user.FullUserName}}</td>
+                                  <td>{{user.UserName}}</td>
+                                  <td>{{user.Password}}</td>
+                                  <td>{{user.BirthDay|date:'M/d/yy'}}</td>
+                                  <td>{{user.Sex}}</td>
+                                  <td><img src={{user.UserPic}}></td>
+                                  <td>{{user.Email}}</td>
+                                  <td>{{user.UserRole}}</td>
+                              </tr>
+                            </tbody>
+                           
+                      </table>
+                      <form name="form" (ngSubmit)="f.form.valid" #f="ngForm" method="post" class="form" role="form">
+              <div class="row">
+                    <div class="col-md-2">
+                            <div class="form-group ">
+                                          <input type="text" class="form-control"  placeholder="User ID Number" name="UserIdNumber"[(ngModel)]="model.UserIdNumber" #UserIdNumber="ngModel"/>
+                                </div>
+                        </div>
+                  <div class="col-md-2">
+                      <div class="form-group ">
+                                    <input type="text" class="form-control"  placeholder="Full User Name" name="FullUserName"[(ngModel)]="model.FullUserName" #FullUserName="ngModel"/>
+                          </div>
+                  </div>
+                  <div class="col-md-2">
+                          <div class="form-group ">
+                                        <input type="text" class="form-control"  placeholder="User Name" name="UserName"[(ngModel)]="model.UserName" #UserName="ngModel"/>
+                              </div>
+                      </div>
+                     
+                      <div class="col-md-2">
+                          <div class="form-group ">
+                                        <input type="text" class="form-control"  placeholder="Password" name="Password"[(ngModel)]="model.Password" #Password="ngModel"/>
+                              </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="form-group ">
+                                        <input type="date" class="form-control"  placeholder="BirthDay" name="BirthDay"[(ngModel)]="model.BirthDay" #BirthDay="ngModel"/>
+                              </div>
+                      </div>
+                      <div class="col-md-2">
+                            <div class="form-group ">
+                                  <select id="Sex" class="form-control" [(ngModel)]="model.Sex" name="Sex">
+                                    <option *ngFor="let type of Sex" >{{type}}</option>
+                                  </select>
+                                </div>
+                        </div>
+                      <div class="col-md-2">
+                          <div class="form-group ">
+                                <div class="container">
+                  
+                                        <div class="form-group">
+                                            <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                                            <img *ngIf="imageUrl" [src]="imageUrl" style="width:250px;height:200px;display:block;">
+                                        </div>
+                                        
+                                        <button class="form-group" type="submit" (click)="upLoudPic()"> Submit</button>
+                                 
+                                </div>
+                              </div>
+                      </div>
+                      <div class="col-md-2">
+                          <div class="form-group ">
+                                        <input type="email" class="form-control"  placeholder="Email" name="Email"[(ngModel)]="model.Email" #Email="ngModel"/>
+                              </div>
+                      </div>
+                                <div class="col-md-2">
+                                        <div class="form-group ">
+                                              <select class="form-control" [(ngModel)]="model.UserRole" name="UserRole">
+                                                <option  *ngFor="let type of UserRole">{{type}}</option>
+                                              </select>
+                                            </div>
+                                    </div>
+                          
+                <div class="col-md-2" >
+                  <div class="form-group ">
+                      <button  (click)="Add()" class="btn btn-lg btn-primary btn-block">Add</button>
+                      </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="form-group ">
+                      <button   (click)="Update()" class="btn btn-lg btn-primary btn-block">Update</button>
+                      </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="form-group ">
+                      <button  class="btn btn-lg btn-primary btn-block"  (click)="delete()">Delete</button>
+                      </div>
+              </div>     
+                </div>
+              </form>
+              
+              <label *ngIf="result!=null" class="alert alert-danger">{{result}}</label>
+              <label *ngIf="!userAdded" class="alert alert-danger">adding user is not succeeded</label>
+          </div>
+        
+</section>

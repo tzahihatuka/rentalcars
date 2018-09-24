@@ -1,0 +1,105 @@
+<div *ngIf="openInMobile" (click)="search()"><a style="width:auto;" >
+    <img src="assets/search.jpg" style="width: 2.2rem; cursor: pointer;" />
+  </a></div>
+  <section *ngIf="!openInMobile">
+      <div class="container">   
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="row">
+                         <div class="col-md-2" id="SelactRange">
+                      <div class="form-group "> 
+                                     
+                              <a  style="width:auto;"><span (click)="toggle()">
+                                  <img src="assets/images.jpg" style="width: 2.2rem; cursor: pointer;"/>
+                                </span></a>  
+                                                   
+                          </div>
+                  </div>  
+                  <div class="col-md-2">
+                        <div class="form-group ">
+                              <select id="inputState"[(ngModel)]="Company"  class="form-control" (ngModelChange)="saverange()"><option selected [value]="car">Company</option>
+                                <option *ngFor="let car of carGallery.a">{{car}}</option>
+                              </select>
+                            </div>
+                    </div>
+                
+                  
+                    <div class="col-md-2">
+                            <div class="form-group ">
+                                  <select id="inputState" class="form-control"[(ngModel)]="Model" ><option selected [value]="Model">Model</option>
+                                    <option *ngFor="let Model of TypsModel.a">{{Model}}</option>
+                                  </select>
+                                </div>
+                        </div>
+
+
+                  <div class="col-md-2">
+                        <div class="form-group ">
+                              <select id="inputState" class="form-control" [(ngModel)]="Gear"><option selected [value]="Gear">Gear</option>
+                                <option *ngFor="let Gear of TypsGetGear.a">{{Gear}}</option>
+                              </select>
+                            </div>
+                    </div>
+
+                  <div class="col-md-2">
+                      <div class="form-group ">
+                           <input type="text" id="inputState" class="form-control" [(ngModel)]="openText"  [value]="openText" placeholder="Search here">
+                          </div>
+                  </div>
+                
+                  <div class="col-md-2">
+                    <div class="form-group ">
+                          <select id="inputState" class="form-control" [(ngModel)]="Year"><option selected [value]="Year">Year</option>
+                            <option *ngFor="let Year of TypsGetYear.a">{{Year| date:'M/d/yy'}}</option>
+                          </select>
+                        </div>
+                </div>
+
+                  <div class="col align-self-center">
+                      <div class="form-group">
+                          <button type="button" class="btn btn-primary btn-lg btn-block" (click)="search()">
+                              <span class="glyphicon glyphicon-search"></span> Search
+                            </button>
+                          </div>
+                        
+                  </div>
+                  <div class="col-md-2">
+                      <div class="form-group ">
+                  <div *ngIf="showcalender" id="custom">
+                      <div *ngIf="!openOnyOnscad">
+                      <ngb-datepicker #dp  (select)="onDateSelection($event)" [minDate]="minDate" [maxDate]="maxDate" [displayMonths]="2" [dayTemplate]="t">
+
+                              </ngb-datepicker>
+                            </div>
+                            <div *ngIf="openOnyOnscad">
+                                <ngb-datepicker #dp  (select)="onDateSelection($event)" [minDate]="minDate" [maxDate]="maxDate" [displayMonths]="1" [dayTemplate]="t">
+          
+                                        </ngb-datepicker>
+                                      </div>                                      
+                      </div> 
+                </div>
+            </div>
+              </div>
+            </div>
+          </div>
+              
+          </div>
+      </div>
+  </div>
+  </section>
+
+      
+          <div *ngIf="!showcalender" class="form-group">
+              <label *ngIf="showDateCalinder">Start: 
+               <input *ngIf="showDateCalinder" type="text" id="startrent" class="form-control" readonly [(ngModel)]="startrent" style="
+               display:inline-block"></label>
+              </div>
+      
+     
+        <div *ngIf="!showcalender" class="form-group ">
+          <label *ngIf="showDateCalinder">End: 
+             <input *ngIf="showDateCalinder" type="text" id="endrent" class="form-control"readonly [(ngModel)]="endrent" style="
+             display:inline-block"></label>
+            </div>

@@ -1,0 +1,10 @@
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\bin\Debug\00_DAL.dll.config
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\bin\Debug\00_DAL.dll
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\bin\Debug\00_DAL.pdb
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\bin\Debug\EntityFramework.dll
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\bin\Debug\EntityFramework.xml
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\obj\Debug\00_DAL.csprojResolveAssemblyReference.cache
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\obj\Debug\00_DAL.dll
+C:\Users\tzahi\documents\visual studio 2017\Projects\rentalcar_API\00_DAL\obj\Debug\00_DAL.pdb

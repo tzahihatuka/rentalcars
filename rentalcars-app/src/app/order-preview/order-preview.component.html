@@ -1,0 +1,33 @@
+
+<div *ngIf="myCarOrders.gutOrder" >
+
+
+
+<form class="modal-content">
+  <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 well well-sm">
+          <form name="form">
+           
+              <div class="row ">
+                  <div class="col-xs-12 col-sm-12 col-md-6">
+                      <img src={{myCarOrders.orderselected.a.VehiclePic}}/>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-6">
+                          <ul>
+                            <li> Start Date: {{myCarOrders.orderselected.a.StartDate | date:'M/d/yy'}} </li>
+                            <li> expected Return Date: {{myCarOrders.orderselected.a.endDate | date:'M/d/yy'}}</li>
+                            <li> Manufacturer Name: {{myCarOrders.orderselected.a.ManufacturerName}} </li>
+                            <li> Model: {{myCarOrders.orderselected.a.Model}}</li>
+                            <li> Daily Cost: {{myCarOrders.orderselected.a.DailyCost}}</li>
+                            <li> Cost of day overdue: {{myCarOrders.orderselected.a.CostDayOverdue}}</li>
+                            <li *ngIf="!myCarOrders.orderselected.a.ActualReturnDate"> returned day: {{myCarOrders.isTheselectedOrderAnded}}</li>
+                            <li *ngIf="myCarOrders.orderselected.a.ActualReturnDate"> returned day: {{myCarOrders.isTheselectedOrderAnded| date:'M/d/yy'}}</li>
+                      </ul>
+                      <div class="calculateCost"><label>Cost:</label><h1>{{myCarOrders.orderselectedCost}}</h1></div>
+                         </div>
+                  </div>
+          </form>
+      </div>
+  </div>
+</form>
+</div>

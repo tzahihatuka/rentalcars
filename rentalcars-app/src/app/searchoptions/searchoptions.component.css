@@ -1,0 +1,41 @@
+.form-group{
+    margin-bottom: 0px;
+    z-index: 1;
+}
+.glyphicon{
+    font-size: 100%;
+}
+.card{
+    border: none;
+}
+label{
+    margin-left: 149px;
+    font-size: 30px;
+}
+.container{
+    max-width: 1500px;
+   
+}
+#startrent{
+    width: 100px;
+}
+#endrent{
+    margin-left: 13px;
+    width: 100px;
+}
+.col-md-2{
+    max-height: 50px;
+    padding:5px;
+    z-index: 100;
+}
+
+.col-sm{
+    display: none;
+}
+#SelactRange{
+    max-width: 50px;
+}
+#custom{
+    padding-top: 9px;
+
+}

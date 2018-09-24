@@ -1,0 +1,31 @@
+<div id="id02" class="modal imgcontainer">
+  
+    
+    <form class="modal-content animate container ">
+        <span routerLink="{{lestUrl}}" class="close" id="close" title="Close">&times;</span>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 well well-sm">
+                <legend> Login</legend>
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" method="post" class="form" role="form">
+                
+                        <input type="text" class="form-control" pattern="[0-9a-zA-Z]*" maxlength="15" placeholder="User Name" name="UserName"[(ngModel)]="model.UserName" #UserName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && UserName.invalid }" required minlength="3"/>                           
+                        <div *ngIf="ShowErrors&&UserName.invalid">
+                            <div *ngIf="UserName.errors?.minlength" class="alert alert-danger"> Name must be at least 3 characters long.</div> 
+                            <div *ngIf="UserName.errors?.pattern" class="alert alert-danger">Please enter only letters and numbers are allowed</div>
+                        </div>
+
+                        <input type="password"(focus)="onFocus()" pattern="[0-9a-zA-Z]*" class="form-control" name="password" placeholder="New Password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+                        <div *ngIf="wrongDetails"class="alert alert-danger">Wrong Username OR Password</div>
+                        <div *ngIf="ShowErrors && password.invalid">
+                            <div *ngIf="password.errors.minlength"class="alert alert-danger">Password must be at least 6 characters</div>
+                            <div *ngIf="password.errors?.pattern"class="alert alert-danger">Please enter only letters and numbers are allowed</div>
+                            
+                        </div>                   
+                    <button  [disabled]="!f.valid" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>                                       
+                   <a routerLink="/signup" style="width:auto;"><span></span> Sign Up</a>
+                </form>
+            </div>
+        </div>
+      </form>
+    </div>
+    

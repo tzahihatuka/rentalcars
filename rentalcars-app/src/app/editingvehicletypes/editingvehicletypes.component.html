@@ -1,0 +1,105 @@
+
+
+
+<section>
+    <div class="container">
+        <form name="form" (ngSubmit)="g.form.valid" #g="ngForm" method="post" class="form" role="form">
+        <div class="row">
+              <div class="col-md-12">
+                  <div id="custom-search-input">
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                              <select id="Company" class="form-control" [(ngModel)]="model.ManufacturerName" name="ManufacturerName"> <option>Company</option>
+                                <option *ngFor="let type of carGallery.a" >{{type}}</option>
+                              </select>
+                            </div>
+                    </div>
+                                      
+                                      <div class="col-md-6">
+                                          <div class="form-group ">
+                                              <button  class="btn btn-lg btn-primary btn-block" (click)="search()">Show types</button>
+                                              </div>
+                                      </div>
+                                    </div>
+                                </div>
+                          </div>
+                        </form>
+                        
+            
+                        <table  class="table">
+                            <thead>
+                            <tr>
+                                <th>Company Name</th>
+                                <th>Car Model</th>
+                                <th>Car Gear</th>
+                                <th>&nbsp;Manufacture Year</th>
+                                <th>Daily Cost</th>
+                                <th>Cost Day Overdue</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let order of TypsModel.a" (click)="setItem(order)">
+                                    <td>{{this.order.ManufacturerName}}</td>
+                                    <td>{{this.order.Model}}</td>
+                                    <td>{{this.order.Gear}}</td>
+                                    <td>{{this.order.ManufactureYear|date:'M/d/yy'}}</td>
+                                    <td>{{this.order.DailyCost}}</td>
+                                    <td>{{this.order.CostDayOverdue}}</td>
+                                </tr>
+                              </tbody>
+                             
+                        </table>
+                        <form name="form" (ngSubmit)="f.form.valid" #f="ngForm" method="post" class="form" role="form">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group ">
+                                      <input type="text" class="form-control"  placeholder="Company Name" name="ManufacturerName"[(ngModel)]="model.ManufacturerName" #ManufacturerName="ngModel"/>
+                            </div>
+                    </div>
+                    <div class="col-md-2">
+                            <div class="form-group ">
+                                          <input type="text" class="form-control"  placeholder="Model" name="Model"[(ngModel)]="model.Model" #Model="ngModel"/>
+                                </div>
+                        </div>
+                       
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                                          <input type="text" class="form-control"  placeholder="Gear" name="Gear"[(ngModel)]="model.Gear" #Gear="ngModel"/>
+                                </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                                          <input type="text" class="form-control"  placeholder="Year" name="ManufactureYear"[(ngModel)]="model.ManufactureYear" #ManufactureYear="ngModel"/>
+                                </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                                          <input type="text" class="form-control"  placeholder="DailyCost" name="DailyCost"[(ngModel)]="model.DailyCost" #DailyCost="ngModel"/>
+                                </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group ">
+                                          <input type="text" class="form-control"  placeholder="CostDayOverdue" name="CostDayOverdue"[(ngModel)]="model.CostDayOverdue" #CostDayOverdue="ngModel"/>
+                                </div>
+                        </div>
+                              
+                  <div class="col-md-2" >
+                    <div class="form-group ">
+                        <button  (click)="Add()" class="btn btn-lg btn-primary btn-block">Add</button>
+                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group ">
+                        <button   (click)="Update()" class="btn btn-lg btn-primary btn-block">Update</button>
+                        </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group ">
+                        <button  class="btn btn-lg btn-primary btn-block"  (click)="delete()">Delete</button>
+                        </div>
+                </div>     
+                  </div>
+                </form>
+            </div>
+          
+</section>

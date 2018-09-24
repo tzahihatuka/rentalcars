@@ -1,0 +1,27 @@
+
+<div class="container">
+    <h2>Our Cars:</h2>
+
+
+    <hr/>
+    <div class="row">
+
+        <div class="col-sm-1 col-md-3" *ngFor="let car of carGallery.a">
+            <div class="thumbnail">
+
+                <div class="caption">
+
+                    <h2></h2>
+                    <hr/>
+                  <a (click)="selectCar(car.VehicleNumber)" routerLink="Order">  <img [src]="car.VehiclePic"/>
+                    <p>Manufacturer:{{car.ManufacturerName}} </p>
+                    <p>Model:{{car.Model}}</p>
+                    <p>Gear: {{car.Gear}}</p></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
